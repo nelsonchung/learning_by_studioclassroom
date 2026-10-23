@@ -1,4 +1,4 @@
-# 今日英語
+# 空英隨學
 
 以 Flutter 製作的三刊每日影片學習 App。資料來自空中英語教室官方公開目錄、LINE TV 與 Advanced 官方 YouTube 播放清單。
 

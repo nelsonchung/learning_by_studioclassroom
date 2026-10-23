@@ -1,11 +1,11 @@
 {
-    "name": "learning_by_studioclassroom",
-    "short_name": "learning_by_studioclassroom",
+    "name": "空英隨學",
+    "short_name": "空英隨學",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "空英隨學：三刊公開課程索引與每日影片學習工具。",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

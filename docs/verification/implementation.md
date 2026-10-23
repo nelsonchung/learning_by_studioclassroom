@@ -36,4 +36,6 @@
 
 ## 圖像
 
+以下截圖記錄更名為「空英隨學」之前的介面，首頁舊標題為「今日英語」；版面與播放功能相同。
+
 首頁：`library-ios.png`。播放頁：`lt-player-ios.png`、`sc-player-ios.png`、`ad-player-ios.png`。原創 Icon：`../../assets/branding/app-icon.png`。

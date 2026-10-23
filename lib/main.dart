@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: '今日英語',
+    title: '空英隨學',
     theme: ThemeData(
       useMaterial3: true,
       colorScheme:

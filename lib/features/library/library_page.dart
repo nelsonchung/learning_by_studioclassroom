@@ -220,7 +220,7 @@ class _LibraryPageState extends State<LibraryPage> with WidgetsBindingObserver {
                           ),
                           SizedBox(height: 7),
                           Text(
-                            '今日英語',
+                            '空英隨學',
                             style: TextStyle(
                               fontSize: 32,
                               fontWeight: FontWeight.w700,
