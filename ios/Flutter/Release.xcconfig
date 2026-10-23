@@ -1,0 +1,6 @@
+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
+#include "Generated.xcconfig"
+// Apple Silicon simulators only; Intel Macs need x86_64. A host-architecture
+// macro here prevents Xcode from resolving simulator destinations.
+ARCHS[sdk=iphonesimulator*] = arm64
+SUPPORTED_PLATFORMS = iphoneos iphonesimulator

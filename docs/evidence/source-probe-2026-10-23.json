@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "scope_date": "2026-10-23",
+  "timezone": "Asia/Taipei",
+  "date_range": [
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23"
+  ],
+  "method": "Python urllib GET without Cookie or account credentials; public HTML metadata; separate Chrome playback observations",
+  "note": "Response bodies remain in temporary audit directory, not committed. Timestamps refer to snapshot filesystem capture time. No article body, media, cookies or credentials included. HTTP 200 alone is not a playback or full-text access assertion.",
+  "sources": [
+    {
+      "key": "lt",
+      "requested_url": "https://lt.studioclassroom.com/",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:44:00.139299+08:00",
+      "response_bytes": 22609,
+      "sha256": "82d996327259c001c1a6378f73580f931c003afd457796c798abfe68ba584016",
+      "final_url": "https://lt.studioclassroom.com/"
+    },
+    {
+      "key": "sc",
+      "requested_url": "https://sc.studioclassroom.com/",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:43:33.853120+08:00",
+      "response_bytes": 62676,
+      "sha256": "684dae92640206046be47a576497f0c88f76a421fea0b351aa45e6ddb9fc8dd2",
+      "final_url": "https://sc.studioclassroom.com/"
+    },
+    {
+      "key": "ad",
+      "requested_url": "https://ad.studioclassroom.com/",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:44:00.351053+08:00",
+      "response_bytes": 30089,
+      "sha256": "75115fa81fe7d8dc869d5f4e5d9dd8146c0da9e86558efb61108e4755584e509",
+      "final_url": "https://ad.studioclassroom.com/",
+      "player_iframes": [
+        "https://www.youtube.com/embed/videoseries?si=M2rDR8jN3Fe17jli&list=PL8UOfOD7HDmIvReJUbOQoPkf6pUBBOP3n"
+      ]
+    },
+    {
+      "key": "lt-08",
+      "requested_url": "https://lt.studioclassroom.com/lt_articles.php?volume=2026-10-01&article_id=10l08",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:45:11.749957+08:00",
+      "response_bytes": 11431,
+      "sha256": "c7fce9522a0548f155cc8981582180a94695d02e00c47564b785fac333c99168",
+      "final_url": "https://lt.studioclassroom.com/lt_articles.php?volume=2026-10-01&article_id=10l08"
+    },
+    {
+      "key": "lt-09",
+      "requested_url": "https://lt.studioclassroom.com/lt_articles.php?volume=2026-10-01&article_id=10l09",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:45:11.745625+08:00",
+      "response_bytes": 11416,
+      "sha256": "bf5c9963ee5c7789f8dd85c8d41e91537a8f8dc1c6ad5780297d26e78fa46e7d",
+      "final_url": "https://lt.studioclassroom.com/lt_articles.php?volume=2026-10-01&article_id=10l09"
+    },
+    {
+      "key": "lt-10",
+      "requested_url": "https://lt.studioclassroom.com/lt_articles.php?volume=2026-10-01&article_id=10l10",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:47:22.844458+08:00",
+      "response_bytes": 32170,
+      "sha256": "93476d35eab48832e1cd9303def1a9405e791caccca6f0ddfc5a613376a091bc",
+      "final_url": "https://lt.studioclassroom.com/lt_articles.php?volume=2026-10-01&article_id=10l10"
+    },
+    {
+      "key": "sc-09",
+      "requested_url": "https://sc.studioclassroom.com/sc_article.php?article_id=10b09&volume=2026-10-01&zoot=09",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:45:12.029772+08:00",
+      "response_bytes": 32351,
+      "sha256": "d9d334a4ec562fb091bb7e4891177f666a5181523e4629bab9a9d08df87dfb10",
+      "final_url": "https://sc.studioclassroom.com/sc_article.php?article_id=10b09&volume=2026-10-01&zoot=09"
+    },
+    {
+      "key": "sc-10",
+      "requested_url": "https://sc.studioclassroom.com/sc_article.php?article_id=10b10&volume=2026-10-01&zoot=10",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:45:12.020642+08:00",
+      "response_bytes": 32441,
+      "sha256": "e716d721ff1d9f856b51d305fdde6add194a7b16afabdc3a6dafe35e7e23d31c",
+      "final_url": "https://sc.studioclassroom.com/sc_article.php?article_id=10b10&volume=2026-10-01&zoot=10"
+    },
+    {
+      "key": "line-lt",
+      "requested_url": "https://www.linetv.tw/player/10130/eps/1",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:45:12.680971+08:00",
+      "response_bytes": 457639,
+      "sha256": "3ae623403fb7768e55610cd413f8874515940ceb0b1402f3947c019d8c22efd5",
+      "final_url": "https://www.linetv.tw/player/10130/eps/1",
+      "episodes": [
+        {
+          "number": 1,
+          "title": "1023 許師傅手工麵線",
+          "svod": false,
+          "duration_ms": 1441000
+        },
+        {
+          "number": 2,
+          "title": "1022 拍照小撇步(下)",
+          "svod": false,
+          "duration_ms": 1440033
+        },
+        {
+          "number": 3,
+          "title": "1021 拍照小撇步(上)",
+          "svod": false,
+          "duration_ms": 1440033
+        }
+      ]
+    },
+    {
+      "key": "line-sc",
+      "requested_url": "https://www.linetv.tw/player/10131/eps/1",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:44:00.691907+08:00",
+      "response_bytes": 431697,
+      "sha256": "f5b19d7c362f7f292ba11be5a4dda005db4124df587841907f04c88e75483d85",
+      "final_url": "https://www.linetv.tw/player/10131/eps/1",
+      "episodes": [
+        {
+          "number": 1,
+          "title": "1023 阿根廷：對比之境(下)",
+          "svod": false,
+          "duration_ms": 1440038
+        },
+        {
+          "number": 2,
+          "title": "1022 阿根廷：對比之境(上)",
+          "svod": false,
+          "duration_ms": 1444966
+        },
+        {
+          "number": 3,
+          "title": "1021 留校察看驚魂(下)",
+          "svod": false,
+          "duration_ms": 1440033
+        }
+      ]
+    },
+    {
+      "key": "ad-playlist",
+      "requested_url": "https://www.youtube.com/playlist?list=PL8UOfOD7HDmIvReJUbOQoPkf6pUBBOP3n",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:45:11.848924+08:00",
+      "response_bytes": 918151,
+      "sha256": "c6249086d4dddb73c0fb51e20349024303a82faad7c5d7eece05bd55d3654b48",
+      "final_url": "https://www.youtube.com/playlist?list=PL8UOfOD7HDmIvReJUbOQoPkf6pUBBOP3n",
+      "videos": [
+        {
+          "video_id": "x0aobOliJG4",
+          "title": "【三日免費】(10/23) The Music of the Night 夜之樂章"
+        },
+        {
+          "video_id": "icArZIi1RVc",
+          "title": "【三日免費】(10/22) We Need Our Brains Back! 我們需要奪回我們的大腦！"
+        },
+        {
+          "video_id": "VURLMGfbHTQ",
+          "title": "【三日免費】(10/21) We Need Our Brains Back! 我們需要奪回我們的大腦！"
+        }
+      ],
+      "unavailable_items_notice": 32
+    },
+    {
+      "key": "ad-sitemap",
+      "requested_url": "https://ad.studioclassroom.com/ad_sitemap.php",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:45:12.145339+08:00",
+      "response_bytes": 10264,
+      "sha256": "a339bc29cbaf7cc1b509b0aededbf730bef4b8a9983ae99ed99dd9d8ebf8e8f5",
+      "final_url": "https://ad.studioclassroom.com/ad_sitemap.php"
+    },
+    {
+      "key": "tvlt",
+      "requested_url": "https://m.studioclassroom.com/tv-programs.php?level=lt",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:44:00.435250+08:00",
+      "response_bytes": 35574,
+      "sha256": "2fd22541bea2503b969bb34d71df36470bb9c319d5e9421a2e930e24bf5dabb1",
+      "final_url": "https://m.studioclassroom.com/tv-programs.php?level=lt",
+      "player_iframes": [
+        "https://www.linetv.tw/player/10130/eps/1"
+      ],
+      "displayed_time": "2026/10/23 10:44:00"
+    },
+    {
+      "key": "radio-lt",
+      "requested_url": "https://m.studioclassroom.com/radio.php?level=lt",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:46:43.495132+08:00",
+      "response_bytes": 24594,
+      "sha256": "5530bbdb5ad791a202b4f2a80ae8cdd55c56e36351152a229ab0bc20df9d1079",
+      "final_url": "https://m.studioclassroom.com/login_radio.php?req=1&radio=lt",
+      "access": "login_redirect"
+    },
+    {
+      "key": "lt-prev-probe",
+      "requested_url": "https://lt.studioclassroom.com/default.php?volume=2026-09-01",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:45:11.839386+08:00",
+      "response_bytes": 22609,
+      "sha256": "13965a40199527e66cc72ca06ad3d1579ebbda488b82531993cbbe3189c1a665",
+      "final_url": "https://lt.studioclassroom.com/default.php?volume=2026-09-01",
+      "probe": "exploratory_not_discovered_archive_link",
+      "requested_month": "2026-09",
+      "returned_article_volumes": [
+        "2026-10-01"
+      ],
+      "archive_query_verified": false
+    },
+    {
+      "key": "tvsc",
+      "requested_url": "https://m.studioclassroom.com/tv-programs.php?level=sc",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:43:34.045772+08:00",
+      "response_bytes": 36087,
+      "sha256": "8e21fae0f9df3505b3a9daa6dd55dad417b190bb148003a81f30224f662d5edb",
+      "final_url": "https://m.studioclassroom.com/tv-programs.php?level=sc",
+      "player_iframes": [
+        "https://www.linetv.tw/player/10131/eps/1"
+      ],
+      "displayed_time": "2026/10/23 10:43:33"
+    },
+    {
+      "key": "radio-sc",
+      "requested_url": "https://m.studioclassroom.com/radio.php?level=sc",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:44:00.441967+08:00",
+      "response_bytes": 24594,
+      "sha256": "d88dfcc2741bf7d039105c23bf7d4d6c66cef4b151c3f99032ab7ca7a695fba5",
+      "final_url": "https://m.studioclassroom.com/login_radio.php?req=1&radio=sc",
+      "access": "login_redirect"
+    },
+    {
+      "key": "sc-prev-probe",
+      "requested_url": "https://sc.studioclassroom.com/default.php?volume=2026-09-01",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:45:12.188920+08:00",
+      "response_bytes": 62676,
+      "sha256": "684dae92640206046be47a576497f0c88f76a421fea0b351aa45e6ddb9fc8dd2",
+      "final_url": "https://sc.studioclassroom.com/default.php?volume=2026-09-01",
+      "probe": "exploratory_not_discovered_archive_link",
+      "requested_month": "2026-09",
+      "returned_article_volumes": [
+        "2026-10-01"
+      ],
+      "archive_query_verified": false
+    },
+    {
+      "key": "tvad",
+      "requested_url": "https://m.studioclassroom.com/tv-programs.php?level=ad",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:44:00.459430+08:00",
+      "response_bytes": 33352,
+      "sha256": "a59527738d830daaab942c9ce4aef0a9fe34f9db9326f986aac60d3eadd8a717",
+      "final_url": "https://m.studioclassroom.com/tv-programs.php?level=ad",
+      "player_iframes": [
+        "https://www.youtube.com/embed/x0aobOliJG4?rel=0"
+      ],
+      "displayed_time": "2026/10/23 10:44:00"
+    },
+    {
+      "key": "radio-ad",
+      "requested_url": "https://m.studioclassroom.com/radio.php?level=ad",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:47:22.648446+08:00",
+      "response_bytes": 24594,
+      "sha256": "075bade3faa5899e9da48ae402e95110ebe80f4a51a2cb78ce8bb03160299215",
+      "final_url": "https://m.studioclassroom.com/login_radio.php?req=1&radio=ad",
+      "access": "login_redirect"
+    },
+    {
+      "key": "ad-prev-probe",
+      "requested_url": "https://ad.studioclassroom.com/default.php?volume=2026-09-01",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:45:12.208761+08:00",
+      "response_bytes": 30089,
+      "sha256": "072f1a821e1e1fbd0862ff50a44db6ca57c7fab3220040141994663c5d1cd391",
+      "final_url": "https://ad.studioclassroom.com/default.php?volume=2026-09-01",
+      "probe": "exploratory_not_discovered_archive_link",
+      "requested_month": "2026-09",
+      "returned_article_volumes": [
+        "2026-10-01"
+      ],
+      "archive_query_verified": false
+    },
+    {
+      "key": "tvsc-repeat",
+      "requested_url": "https://m.studioclassroom.com/tv-programs.php?level=sc",
+      "http_status": 200,
+      "observed_at": "2026-10-23T10:46:43.654032+08:00",
+      "response_bytes": 36087,
+      "sha256": "e2d891612a9088be70cf3163f173e1431588f760513502fee624481977d4a49b",
+      "final_url": "https://m.studioclassroom.com/tv-programs.php?level=sc",
+      "player_iframes": [
+        "https://www.linetv.tw/player/10131/eps/1"
+      ],
+      "displayed_time": "2026/10/23 10:46:43"
+    }
+  ],
+  "browser_observations": [
+    {
+      "magazine": "sc",
+      "url": "https://www.linetv.tw/player/10131/eps/1",
+      "observed_progress": "0:12 / 25:05",
+      "credential_entry": false
+    },
+    {
+      "magazine": "lt",
+      "url": "https://www.linetv.tw/player/10130/eps/1",
+      "observed_progress": "0:26 / 24:01",
+      "credential_entry": false
+    },
+    {
+      "magazine": "ad",
+      "url": "https://ad.studioclassroom.com/",
+      "observed_result": "Embedded 10/23 video played and ongoing captions appeared after pressing play",
+      "credential_entry": false
+    }
+  ],
+  "browser_session_note": "Existing user Chrome session; not a fresh signed-out test. User separately confirmed daily programs need no credentials.",
+  "unverified": [
+    "Android WebView playback",
+    "iOS WebView playback",
+    "All remaining listed episodes playback",
+    "Fourth-day free episode",
+    "Reliable previous-month catalogue retrieval",
+    "Member-only radio content"
+  ]
+}
