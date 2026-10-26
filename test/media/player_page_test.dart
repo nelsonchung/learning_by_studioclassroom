@@ -174,6 +174,37 @@ void main() {
           tester.element(find.byKey(const Key('official-view'))),
           same(original),
         );
+        // Landscape cutouts and the home indicator must not shrink the video.
+        tester.view.physicalSize = const Size(1000, 430);
+        tester.view.padding = FakeViewPadding(left: 44, bottom: 21);
+        addTearDown(tester.view.resetPadding);
+        await tester.pumpAndSettle();
+        expect(
+          tester.getRect(find.byKey(const Key('video-viewport'))),
+          const Rect.fromLTWH(0, 0, 1000, 430),
+        );
+        expect(
+          tester.getRect(find.byKey(const Key('official-view'))),
+          Rect.fromLTWH((1000 - 430 * 16 / 9) / 2, 0, 430 * 16 / 9, 430),
+        );
+        // iPhone 13 mini logical landscape dimensions.
+        tester.view.physicalSize = const Size(812, 375);
+        await tester.pumpAndSettle();
+        final fittedVideo = tester.getRect(
+          find.byKey(const Key('official-view')),
+        );
+        expect(fittedVideo.height, 375);
+        expect(fittedVideo.width / fittedVideo.height, closeTo(16 / 9, 0.001));
+        expect(fittedVideo.center.dx, closeTo(406, 0.001));
+        expect(fittedVideo.center.dy, closeTo(187.5, 0.001));
+        expect(find.text('每日節目'), findsNothing);
+        expect(find.text('測試課程'), findsNothing);
+        expect(find.byType(LinearProgressIndicator), findsNothing);
+        expect(find.byTooltip('退出全螢幕'), findsOneWidget);
+        expect(
+          tester.element(find.byKey(const Key('official-view'))),
+          same(original),
+        );
         expect(session.loads, 1);
         expect(creations, 1);
         expect(
@@ -191,7 +222,15 @@ void main() {
         );
         await tester.binding.handlePopRoute();
         await tester.pumpAndSettle();
+        tester.view.physicalSize = const Size(430, 1000);
+        tester.view.resetPadding();
+        await tester.pumpAndSettle();
         expect(find.byTooltip('全螢幕播放'), findsOneWidget);
+        expect(find.text('每日節目'), findsOneWidget);
+        expect(
+          tester.getRect(find.byKey(const Key('video-viewport'))),
+          viewport,
+        );
         expect(session.stops, 0);
         await tester.tap(find.byTooltip('全螢幕播放'));
         await tester.pumpAndSettle();
@@ -351,8 +390,15 @@ void main() {
         () => nativeHides++,
       );
       await tester.pumpAndSettle();
-      expect(find.byKey(const Key('native-video')), findsOneWidget);
-      await tester.binding.handlePopRoute();
+      tester.view.physicalSize = const Size(1000, 430);
+      tester.view.padding = FakeViewPadding(left: 44, bottom: 21);
+      addTearDown(tester.view.resetPadding);
+      await tester.pumpAndSettle();
+      expect(
+        tester.getRect(find.byKey(const Key('native-video'))),
+        const Rect.fromLTWH(0, 0, 1000, 430),
+      );
+      await tester.tap(find.byTooltip('退出全螢幕'));
       await tester.pumpAndSettle();
       expect(nativeHides, 1);
       expect(find.byKey(const Key('native-video')), findsNothing);
@@ -365,6 +411,48 @@ void main() {
       await tester.pump();
     },
   );
+
+  testWidgets('YouTube keeps its responsive fullscreen viewport', (
+    tester,
+  ) async {
+    _portraitViewport(tester);
+    final session = _FakeSession();
+    await tester.pumpWidget(
+      MaterialApp(
+        home: PlayerPage(
+          videoUri: Uri.parse('https://www.youtube.com/watch?v=x0aobOliJG4'),
+          title: 'Advanced',
+          sessionFactory:
+              (
+                uri, {
+                required onLoading,
+                required onError,
+                required onShowFullscreen,
+                required onHideFullscreen,
+              }) {
+                onLoading(false);
+                return session;
+              },
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final original = tester.element(find.byKey(const Key('official-view')));
+    await tester.tap(find.byTooltip('全螢幕播放'));
+    tester.view.physicalSize = const Size(812, 375);
+    await tester.pumpAndSettle();
+    expect(
+      tester.getRect(find.byKey(const Key('official-view'))),
+      const Rect.fromLTWH(0, 0, 812, 375),
+    );
+    expect(
+      tester.element(find.byKey(const Key('official-view'))),
+      same(original),
+    );
+    expect(session.loads, 1);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+  });
 
   testWidgets('load errors offer retry on the same session', (tester) async {
     _portraitViewport(tester);

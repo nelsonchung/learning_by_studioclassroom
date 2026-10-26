@@ -509,11 +509,17 @@ class _PlayerPageState extends State<PlayerPage> {
       child: Scaffold(
         backgroundColor: _fullscreen ? Colors.black : _paper,
         body: SafeArea(
+          left: !_fullscreen,
+          top: !_fullscreen,
+          right: !_fullscreen,
+          bottom: !_fullscreen,
           child: LayoutBuilder(
             builder: (context, constraints) {
-              final headerHeight = _fullscreen ? 48.0 : 64.0;
-              final available = (constraints.maxHeight - headerHeight - 2)
-                  .clamp(0.0, double.infinity);
+              final chromeHeight = _fullscreen ? 0.0 : 66.0;
+              final available = (constraints.maxHeight - chromeHeight).clamp(
+                0.0,
+                double.infinity,
+              );
               final inlineHeight = (constraints.maxWidth * 9 / 16).clamp(
                 200.0,
                 double.infinity,
@@ -521,48 +527,95 @@ class _PlayerPageState extends State<PlayerPage> {
               final videoHeight = _fullscreen
                   ? available
                   : inlineHeight.clamp(0.0, available);
-              return Column(
+              // LINE TV sizes its inline player from the document width. On
+              // wide phones a full-width 16:9 player is taller than the screen.
+              // Constrain the document itself; retain the same native view.
+              final containDocument =
+                  _fullscreen &&
+                  _nativeFullscreen == null &&
+                  widget.videoUri.host == 'www.linetv.tw';
+              final documentWidth = containDocument
+                  ? (videoHeight * 16 / 9).clamp(0.0, constraints.maxWidth)
+                  : constraints.maxWidth;
+              final documentHeight = containDocument
+                  ? documentWidth * 9 / 16
+                  : videoHeight;
+              return Stack(
+                fit: StackFit.expand,
                 children: [
-                  _header(valid),
-                  // Loading feedback and app controls sit outside provider pixels.
-                  SizedBox(
-                    height: 2,
-                    child: _loading && !_failed && _session != null
-                        ? const LinearProgressIndicator(
-                            color: _rust,
-                            backgroundColor: Colors.transparent,
-                          )
-                        : const SizedBox.expand(),
-                  ),
-                  // Fixed element position and session keep playback intact when
-                  // the viewport changes between inline and fullscreen.
-                  SizedBox(
-                    key: const Key('video-viewport'),
-                    height: videoHeight,
-                    width: double.infinity,
-                    child: ColoredBox(
-                      color: Colors.black,
-                      child: Stack(
-                        fit: StackFit.expand,
-                        children: [
-                          Visibility(
-                            visible: _session != null && !_failed,
-                            maintainState: true,
-                            child: _session?.view ?? const SizedBox.expand(),
+                  Column(
+                    children: [
+                      Visibility(visible: !_fullscreen, child: _header(valid)),
+                      // Loading feedback and app controls sit outside provider pixels.
+                      Visibility(
+                        visible: !_fullscreen,
+                        child: SizedBox(
+                          height: 2,
+                          child: _loading && !_failed && _session != null
+                              ? const LinearProgressIndicator(
+                                  color: _rust,
+                                  backgroundColor: Colors.transparent,
+                                )
+                              : const SizedBox.expand(),
+                        ),
+                      ),
+                      // Fixed element position and session keep playback intact when
+                      // the viewport changes between inline and fullscreen.
+                      SizedBox(
+                        key: const Key('video-viewport'),
+                        height: videoHeight,
+                        width: double.infinity,
+                        child: ColoredBox(
+                          color: Colors.black,
+                          child: Stack(
+                            fit: StackFit.expand,
+                            children: [
+                              Center(
+                                child: SizedBox(
+                                  width: documentWidth,
+                                  height: documentHeight,
+                                  child: Visibility(
+                                    visible: _session != null && !_failed,
+                                    maintainState: true,
+                                    child:
+                                        _session?.view ??
+                                        const SizedBox.expand(),
+                                  ),
+                                ),
+                              ),
+                              if (_session == null || _failed)
+                                _unavailable(valid),
+                              ?_nativeFullscreen,
+                            ],
                           ),
-                          if (_session == null || _failed) _unavailable(valid),
-                          ?_nativeFullscreen,
-                        ],
+                        ),
+                      ),
+                      Expanded(
+                        child: Visibility(
+                          visible: !_fullscreen,
+                          maintainState: true,
+                          child: _details(valid),
+                        ),
+                      ),
+                    ],
+                  ),
+                  if (_fullscreen)
+                    Positioned(
+                      top: 0,
+                      left: 0,
+                      child: SafeArea(
+                        minimum: const EdgeInsets.all(8),
+                        child: IconButton.filledTonal(
+                          tooltip: '退出全螢幕',
+                          onPressed: _exitFullscreen,
+                          style: IconButton.styleFrom(
+                            backgroundColor: Colors.black54,
+                            foregroundColor: Colors.white,
+                          ),
+                          icon: const Icon(Icons.fullscreen_exit_rounded),
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    child: Visibility(
-                      visible: !_fullscreen,
-                      maintainState: true,
-                      child: _details(valid),
-                    ),
-                  ),
                 ],
               );
             },
